@@ -15,7 +15,7 @@ export default function about() {
                         <p>
                             Hello 👋, I'm Jiaxin (Jacey) Cui.
                             <span className="whitespace-nowrap"> </span>
-                            I'm an <b>Full-Stack</b> developer from Dalian, China.
+                            I'm a full-stack developer from Dalian, China.
                             Now I live in the United States.
                             I graduated from Duke University with a Master of Engineering degree in Electrical and Computer Engineering, specializing in Software Engineering.
                             Prior to this, I earned my undergraduate degree from Dalian University of Technology, majoring in Management Information Systems.

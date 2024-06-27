@@ -27,8 +27,7 @@ export default function hero() {
         </MotionDiv>
         <MotionDiv delayOffset={1.4}>
           <p>
-            <b> a ✨ Full-Stack </b>developer who loves to
-            build something cool.
+          ✨ Aiming to make the world a better place with technology
           </p>
         </MotionDiv>
       </div>

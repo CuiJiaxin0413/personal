@@ -10,14 +10,9 @@ import pythonIcon from "@/assets/icons/python.png";
 import javaIcon from "@/assets/icons/java.png";
 import html5Icon from "@/assets/icons/html5.png";
 import tailwindcssIcon from "@/assets/icons/tailwindcss.png";
-import shadcnuiIcon from "@/assets/icons/shadcn-ui.png";
-import pnpmIcon from "@/assets/icons/pnpm.png";
-import viteIcon from "@/assets/icons/vite.png";
-import prettierIcon from "@/assets/icons/prettier.png";
 import nodejsIcon from "@/assets/icons/nodejs.png";
 import nestjsIcon from "@/assets/icons/nest-js.png";
 import expressjsIcon from "@/assets/icons/express-js.png";
-import prismaIcon from "@/assets/icons/prisma.png";
 import postgresIcon from "@/assets/icons/postgres.png";
 import dockerIcon from "@/assets/icons/docker.png";
 import gitIcon from "@/assets/icons/git.png";
@@ -27,11 +22,8 @@ import vscodeIcon from "@/assets/icons/vscode.png";
 import arcIcon from "@/assets/icons/arc.png";
 import warpIcon from "@/assets/icons/warp.webp";
 import postmanIcon from "@/assets/icons/postman.svg";
-import davinciResolveIcon from "@/assets/icons/davinci-resolve.png";
-import lightroomIcon from "@/assets/icons/lightroom.png";
 import ExpoIcon from "@/assets/icons/expo.png";
 import githubActionsIcon from "@/assets/icons/github-actions.png";
-import trpcIcon from "@/assets/icons/trpc.svg";
 export default function skills() {
   const data = [
     {

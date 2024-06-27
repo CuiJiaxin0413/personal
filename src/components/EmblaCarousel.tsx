@@ -1,64 +1,76 @@
+// EmblaCarousel.tsx
 import React from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import {
-    PrevButton,
-    NextButton,
-    usePrevNextButtons
+  PrevButton,
+  NextButton,
+  usePrevNextButtons
 } from './EmblaCarouselArrowButtons'
 import useEmblaCarousel from 'embla-carousel-react'
+import { StaticImageData } from 'next/image'
+import Image from "next/image";
 
-type PropType = {
-    slides: number[]
-    options?: EmblaOptionsType
+type Slide = {
+  imageUrl: string | StaticImageData;
+  title: string
+  description: string
 }
 
-const EmblaCarousel: React.FC<PropType> = (props) => {
-    const { slides, options } = props
-    const [emblaRef, emblaApi] = useEmblaCarousel(options)
+type PropType = {
+  slides: Slide[]
+  options?: EmblaOptionsType
+}
 
-    const { selectedIndex, scrollSnaps, onDotButtonClick } =
-        useDotButton(emblaApi)
+const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
-    const {
-        prevBtnDisabled,
-        nextBtnDisabled,
-        onPrevButtonClick,
-        onNextButtonClick
-    } = usePrevNextButtons(emblaApi)
+  const { selectedIndex, scrollSnaps, onDotButtonClick } =
+    useDotButton(emblaApi)
 
-    return (
-        <section className="embla">
-            <div className="embla__viewport" ref={emblaRef}>
-                <div className="embla__container">
-                    {slides.map((index) => (
-                        <div className="embla__slide" key={index}>
-                            <div className="embla__slide__number">{index + 1}</div>
-                        </div>
-                    ))}
-                </div>
+  const {
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick
+  } = usePrevNextButtons(emblaApi)
+
+  return (
+    <section className="embla">
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container">
+          {slides.map((slide, index) => (
+            <div className="embla__slide" key={index}>
+              <Image src={slide.imageUrl} alt={slide.title} className="embla__slide__img" />
+              <div className="embla__slide__content">
+                <h3 className="embla__slide__title">{slide.title}</h3>
+                <p className="embla__slide__description">{slide.description}</p>
+              </div>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <div className="embla__controls">
-                <div className="embla__buttons">
-                    <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-                    <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-                </div>
+      <div className="embla__controls">
+        <div className="embla__buttons">
+          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+        </div>
 
-                <div className="embla__dots">
-                    {scrollSnaps.map((_: any, index: any) => (
-                        <DotButton
-                            key={index}
-                            onClick={() => onDotButtonClick(index)}
-                            className={'embla__dot'.concat(
-                                index === selectedIndex ? ' embla__dot--selected' : ''
-                            )}
-                        />
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
+        <div className="embla__dots">
+          {scrollSnaps.map((_, index) => (
+            <DotButton
+              key={index}
+              onClick={() => onDotButtonClick(index)}
+              className={'embla__dot'.concat(
+                index === selectedIndex ? ' embla__dot--selected' : ''
+              )}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default EmblaCarousel
