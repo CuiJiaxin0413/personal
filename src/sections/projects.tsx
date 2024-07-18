@@ -9,7 +9,7 @@ import '../css/embla.css'
 import EmblaCarousel from '@/components/EmblaCarousel';
 
 import travelImage from "@/assets/images/travel.png";
-import riscImage from "@/assets/images/risc.JPG";
+import riscImage from "@/assets/images/risc.jpg";
 
 const OPTIONS: EmblaOptionsType = { containScroll: false }
 const SLIDE_COUNT = 2
