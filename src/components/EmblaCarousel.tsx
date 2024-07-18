@@ -12,9 +12,10 @@ import { StaticImageData } from 'next/image'
 import Image from "next/image";
 
 type Slide = {
-  imageUrl: string | StaticImageData;
+  image: string | StaticImageData;
   title: string
   description: string
+  stack: string
 }
 
 type PropType = {
@@ -35,16 +36,27 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
     onNextButtonClick
   } = usePrevNextButtons(emblaApi)
 
+  const formatDescription = (description: string) => {
+    return description.split('\n').map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        <br />
+      </React.Fragment>
+    ));
+  };
+
   return (
     <section className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
             <div className="embla__slide" key={index}>
-              <Image src={slide.imageUrl} alt={slide.title} className="embla__slide__img" />
+              <Image src={slide.image} alt={slide.title} className="embla__slide__img" />
               <div className="embla__slide__content">
                 <h3 className="embla__slide__title">{slide.title}</h3>
-                <p className="embla__slide__description">{slide.description}</p>
+                <p className="embla__slide__technologies">Technologies: {slide.stack}</p>
+                <br />
+                <p className="embla__slide__description">{formatDescription(slide.description)}</p>           
               </div>
             </div>
           ))}
