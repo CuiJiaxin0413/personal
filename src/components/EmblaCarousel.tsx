@@ -55,7 +55,6 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
               <div className="embla__slide__content">
                 <h3 className="embla__slide__title">{slide.title}</h3>
                 <p className="embla__slide__technologies">Technologies: {slide.stack}</p>
-                <br />
                 <p className="embla__slide__description">{formatDescription(slide.description)}</p>           
               </div>
             </div>
