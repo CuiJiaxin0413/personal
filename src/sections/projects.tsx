@@ -9,7 +9,7 @@ import '../css/embla.css'
 import EmblaCarousel from '@/components/EmblaCarousel';
 
 import travelImage from "@/assets/images/travel.png";
-import riscImage from "@/assets/images/risc.jpg";
+import riscImage from "@/assets/images/risc.png";
 import proxyImage from "@/assets/images/proxy-server.png";
 
 const OPTIONS: EmblaOptionsType = { containScroll: false }
